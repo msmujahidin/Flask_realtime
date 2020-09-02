@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "Base.html" %}
 
 {% block content %}
 
@@ -6,8 +6,8 @@
 
 <!-- Cover Image  -->
 <div class="jumbotron">
-    <h1 id="title">Welcome to Job Hunter</h1>
-</div>
+ <center><h1 id="title">Mujahidin Monitoring Sistem</h1>
+</center> </div>
 
 <div class="container-fluid">
         <!-- Example row of columns -->
@@ -23,7 +23,8 @@
         function requestData()
         {
             // Ajax call to get the Data from Flask
-            var requests = $.get('/Humidity/humidity');
+            var requests = $.get('/Suhu/suhu');
+            // var requests = $.get('/Humadity/humidity')
 
             // request is complete
             var tm = requests.done(function (result)
@@ -52,8 +53,10 @@
                     }
                 },
                 title: {
-                    text: 'Live random data'
+                    text: 'Live random Humadity data'
+
                 },
+
                 xAxis: {
                     type: 'datetime',
                     tickPixelInterval: 150,
@@ -68,13 +71,20 @@
                     }
                 },
                 series: [{
-                    name: 'Random data',
-                    data: []
+                    name: 'Humadity data',
+                    data1: []
                 }]
+
+                // series: [{
+                //     name: 'Humadity data',
+                //     data: []
+                // }]
             });
         });
 
 </script>
+
+
 <script src="/static/Main/js/Main.js"></script>
 
 {% endblock %}

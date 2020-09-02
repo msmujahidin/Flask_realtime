@@ -15,13 +15,23 @@ except Exception as e:
     print("Some modules didnt load {}".format(e))
 
 humidity_blueprint = Blueprint('Humidity', __name__)
+suhu_blueprint = Blueprint('Suhu', __name__)
 
 
 @humidity_blueprint.route('/humidity', methods=['GET'])
 def humidity():
     # Create a PHP array and echo it as JSON
 
-    data = [time() * 1000, random() * 100]
+    data = [time() * 1000, random() * 10]
     response = make_response(json.dumps(data))
     response.content_type = 'application/json'
     return response
+
+
+@suhu_blueprint.route('/suhu', methods=['GET'])
+def suhu(): 
+    data1 = [time() * 1000, random() * 10]
+    response1 = make_response(json.dumps(data1))
+    response1.content_type = 'application/json'
+    return response1
+

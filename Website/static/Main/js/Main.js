@@ -67,7 +67,7 @@ class Charts{
                 showLabel:true
             },
             axisY:{
-                offset: 60
+                offset: 30
             }
         };
 
@@ -80,11 +80,11 @@ class Charts{
 $(window).bind("load", function() {
 
     // your javascript event here
-    const imgUrl = 'https://media3.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif'
-    const size = "50";
-    var obj = new Image(imgUrl, size);
-    obj.backgroundImage();
-    obj.centerTitle();
+    //const imgUrl = 'https://media3.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif'
+    //const size = "50";
+    // var obj = new Image(imgUrl, size);
+    // obj.backgroundImage();
+    // obj.centerTitle();
 
     // Charts
     var XData = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
@@ -95,7 +95,7 @@ $(window).bind("load", function() {
     var tm = requests.done(function (result) {
 
         console.log("TEMPERATURE", result.temperature);
-        var chart  = new Charts(200,200, XData, result.temperature);
+        var chart  = new Charts(100,100, XData, result.temperature);
         chart.CreateGraph();
 
     })
