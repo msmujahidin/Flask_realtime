@@ -23,7 +23,8 @@
         function requestData()
         {
             // Ajax call to get the Data from Flask
-            var requests = $.get('/Suhu/suhu');
+            // var requests = $.get('/Suhu/suhu');
+            var requests = $.get('/Humidity/humidity');
             // var requests = $.get('/Humadity/humidity')
 
             // request is complete
@@ -32,15 +33,51 @@
 
                 console.log("TEMPERATURE", result.temperature);
                 var series = chart.series[0],
-                    shift = series.data.length > 20;
+                    shift = series.data.length > 50;
 
                 // add the point
                 chart.series[0].addPoint(result, true, shift);
+             
 
                 // call it again after one second
                 setTimeout(requestData, 2000);
 
+                // console.log("TEMPERATURE", result.temperature);
+                // var series = chart.series[1],
+                //     shift = series.data.length > 20;
+
+                // // add the point
+                // chart.series[1].addPoint(result, true, shift);
+
+                // // call it again after one second
+                // setTimeout(requestData, 3000);
+
             });
+            //    var tm2 = requests2.done(function (result)
+            // {
+
+            //     console.log("TEMPERATURE", result.temperature);
+            //     var series = chart.series[1],
+            //         shift = series.data.length > 50;
+
+            //     // add the point
+            //     chart.series[1].addPoint(result, true, shift);
+              
+
+            //     // call it again after one second
+            //     setTimeout(requestData, 2000);
+
+            //     // console.log("TEMPERATURE", result.temperature);
+            //     // var series = chart.series[1],
+            //     //     shift = series.data.length > 20;
+
+            //     // // add the point
+            //     // chart.series[1].addPoint(result, true, shift);
+
+            //     // // call it again after one second
+            //     // setTimeout(requestData, 3000);
+
+            // });
         }
 
         $(document).ready(function() {
@@ -48,6 +85,7 @@
                 chart: {
                     renderTo: 'data-container',
                     defaultSeriesType: 'spline',
+                    
                     events: {
                         load: requestData
                     }
@@ -72,15 +110,18 @@
                 },
                 series: [{
                     name: 'Humadity data',
-                    data1: []
+                    data: []
                 }]
+                // ,
+                // {
 
-                // series: [{
                 //     name: 'Humadity data',
                 //     data: []
                 // }]
+                
             });
         });
+
 
 </script>
 
